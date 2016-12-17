@@ -1,6 +1,6 @@
 {
   "name": "minimaldata",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module to check bitcoin policy: SCRIPT_VERIFY_MINIMALDATA",
   "keywords": [
     "minimal",
