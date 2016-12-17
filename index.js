@@ -1,11 +1,5 @@
-var OPS = {
-  'OP_0': 0,
-  'OP_PUSHDATA1': 76,
-  'OP_PUSHDATA2': 77,
-  'OP_PUSHDATA4': 78,
-  'OP_1NEGATE': 79,
-  'OP_1': 81
-}
+var OPS = require('bitcoin-ops')
+var pushData = require('pushdata-bitcoin')
 
 // https://github.com/bitcoin/bitcoin/blob/master/src/script/script.h#L22
 var MAX_SCRIPT_ELEMENT_SIZE = 520
@@ -49,7 +43,7 @@ module.exports = function bip62 (buffer) {
 
     // is this a data PUSH?
     if (opcode >= 0 && opcode <= OPS.OP_PUSHDATA4) {
-      var d = bitcoinjs.bufferutils.readPushDataInt(buffer, i)
+      var d = pushData.decode(buffer, i)
 
       // did reading a pushDataInt fail? empty script
       if (d === null) return false
