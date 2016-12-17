@@ -1,5 +1,11 @@
-var bitcoinjs = require('bitcoinjs-lib')
-var OPS = bitcoinjs.opcodes
+var OPS = {
+  'OP_0': 0,
+  'OP_PUSHDATA1': 76,
+  'OP_PUSHDATA2': 77,
+  'OP_PUSHDATA4': 78,
+  'OP_1NEGATE': 79,
+  'OP_1': 81
+}
 
 // https://github.com/bitcoin/bitcoin/blob/master/src/script/script.h#L22
 var MAX_SCRIPT_ELEMENT_SIZE = 520
